@@ -12,6 +12,12 @@ class _BottomState extends State<Bottom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Just Only for Demo",style: TextStyle(color: Colors.white),),
+        backgroundColor: Colors.blueAccent,),
+        body: Center(child: Text("Welcome",
+          style: TextStyle(fontWeight: FontWeight.w800,fontSize: 60),),),
         bottomNavigationBar: ConvexAppBar(
           items: [
             TabItem(icon: Icons.home, title: 'Home'),
