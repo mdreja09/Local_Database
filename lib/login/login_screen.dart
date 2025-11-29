@@ -3,6 +3,10 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:local_database/bottom_bar/bottom.dart';
 import 'package:local_database/database/user.dart';
+import 'package:local_database/login/text_field_1.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+//import 'package:shared_preferences_android/shared_preferences_android.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -15,7 +19,6 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,23 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
           //crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(
-              child: TextField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  labelText: "Email",
-                  prefixIcon: Icon(Icons.email_outlined),
-
-                  fillColor: Colors.grey,
-
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-
-                  //filled: true,
-                ),
-              ),
-            ),
+            Center(child: TextFieldWidget(emailController: emailController)),
             SizedBox(height: 20),
             TextField(
               controller: passController,
@@ -61,10 +48,11 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
 
+
             SizedBox(height: 20),
 
             InkWell(
-              onTap: () {
+              onTap: () async {
                 // log("++++++${emailController.text}++++=");
                 // log("++++++${passController.text}++++=");
 
@@ -86,7 +74,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   ScaffoldMessenger.of(
                     context,
                   ).showSnackBar(SnackBar(content: Text("Login Success")));
-                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Bottom()));
+
+                  final SharedPreferences p =
+                      await SharedPreferences.getInstance();
+                  await p.setBool("isLogin", true);
+
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => Bottom()),
+                  );
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text("Wrong User or Password")),
