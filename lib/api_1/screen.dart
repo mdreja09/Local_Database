@@ -22,23 +22,29 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
       ),
       body: Column(
         children: [
-          //   TextField(
-          //
-          //
-          //   decoration: InputDecoration(
-          //    // labelText: "Email",
-          //     prefixIcon: Icon(Icons.search),
-          //
-          //     fillColor: Colors.grey,
-          //
-          //     border: OutlineInputBorder(
-          //
-          //       borderRadius: BorderRadius.circular(10),
-          //     ),
-          //
-          //
-          //   ),
-          // ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 25),
+            child: TextField(
+
+
+
+              decoration: InputDecoration(
+
+               hintText: "Search",
+                prefixIcon: Icon(Icons.search),
+
+                fillColor: Colors.grey,
+
+                border: OutlineInputBorder(
+
+
+                  borderRadius: BorderRadius.circular(10),
+                ),
+
+
+              ),
+            ),
+          ),
           Expanded(
             child: ListView.builder(
 
