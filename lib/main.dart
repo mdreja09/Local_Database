@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:local_database/bottom_bar/bottom.dart';
 import 'package:local_database/splash_screen/splash_screen.dart';
 
+import 'api_1/screen.dart';
 import 'login/login_screen.dart';
 
 void main (){
@@ -23,7 +24,7 @@ void main (){
      return MaterialApp(
        debugShowCheckedModeBanner: false,
        home: Scaffold(
-         body: SplashScreen(),
+         body: MotivationalQuotes(),
        ),
 
 
