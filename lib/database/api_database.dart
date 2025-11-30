@@ -7,6 +7,7 @@ class QuoteData {
   "author": "Unknown",
   "created_at": null,
   "updated_at": null
+
   },
   {
   "id": 96,
