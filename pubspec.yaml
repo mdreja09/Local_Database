@@ -43,6 +43,7 @@ dev_dependencies:
   convex_bottom_bar: ^3.2.0
 
   shared_preferences: ^2.5.3
+  shimmer: ^3.0.0
 
 
 

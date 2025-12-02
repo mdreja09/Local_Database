@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:local_database/database/api_database.dart';
+import 'package:shimmer/shimmer.dart';
 
 class MotivationalQuotes extends StatefulWidget {
   const MotivationalQuotes({super.key});
@@ -34,6 +35,7 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
     "assets/comma_icon_04.png",
   ];
   bool isLoading = true;
+  List qData = [];
   loadData() async {
     isLoading = true;
     log(" =======$isLoading");
@@ -55,14 +57,31 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
       backgroundColor: Color(0xffECEFF7),
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.brown,
         title: Text(
           "Motivation Quotes",
           style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
         ),
       ),
       body: isLoading == true
-          ? Center(child: CircularProgressIndicator())
+          ? Center(
+        child: ListView.builder(
+          itemCount: 10,
+            itemBuilder: (context, index) => SizedBox(
+          width: MediaQuery.sizeOf(context).width,
+          height: 150.0,
+          child: Shimmer.fromColors(
+            baseColor: Colors.grey.shade200,
+            highlightColor: Colors.white,
+            child: Card(
+              child: SizedBox(
+                width: MediaQuery.sizeOf(context).width,
+                height: 150,
+              ),
+            ),
+          ),
+        )),
+      )
           : QuoteData.data.isEmpty
           ? Center(child: Text("No Data Found"))
           : Column(
