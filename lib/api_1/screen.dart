@@ -76,7 +76,7 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
             child: Card(
               child: SizedBox(
                 width: MediaQuery.sizeOf(context).width,
-                height: 150,
+                height: 151,
               ),
             ),
           ),
