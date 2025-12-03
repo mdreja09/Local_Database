@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:local_database/api_1/api_json.dart';
 import 'package:local_database/database/api_database.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -35,18 +36,26 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
     "assets/comma_icon_04.png",
   ];
   bool isLoading = true;
-  List qData = [];
+
+  //List qData = [];
+  List qData =[];
   loadData() async {
     isLoading = true;
+    setState(() {
+
+    });
     log(" =======$isLoading");
     await Future.delayed(Duration(seconds: 5));
+    var a = await Api().getDataFromApi();
+    qData = a ["Data"];
+
     isLoading = false;
     setState(() {});
   }
 
   @override
   void initState() {
-    loadData();
+    //loadData();
     // TODO: implement initState
     super.initState();
   }
@@ -58,10 +67,12 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.brown,
+
         title: Text(
           "Motivation Quotes",
           style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
         ),
+        actions: [Icon(Icons.refresh,size: 30,color: Colors.green,)],
       ),
       body: isLoading == true
           ? Center(
