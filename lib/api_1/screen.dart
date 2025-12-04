@@ -39,7 +39,7 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
 
   //List qData = [];
   List qData =[];
-  loadData() async {
+  getDataFronApi() async {
     isLoading = true;
     setState(() {
 
@@ -47,6 +47,7 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
     log(" =======$isLoading");
     await Future.delayed(Duration(seconds: 5));
     var a = await Api().getDataFromApi();
+    log("===$a");
     qData = a ["Data"];
 
     isLoading = false;
@@ -56,6 +57,7 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
   @override
   void initState() {
     //loadData();
+    getDataFronApi();
     // TODO: implement initState
     super.initState();
   }
