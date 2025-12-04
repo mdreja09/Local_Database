@@ -48,7 +48,7 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
     await Future.delayed(Duration(seconds: 5));
     var a = await Api().getDataFromApi();
     log("===$a");
-    qData = a ["Data"];
+    qData = a ["data"];
 
     isLoading = false;
     setState(() {});
@@ -74,7 +74,22 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
           "Motivation Quotes",
           style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
         ),
-        actions: [Icon(Icons.refresh,size: 30,color: Colors.green,)],
+        actions: [InkWell(
+          onTap: () async{
+            log("===========");
+
+            getDataFronApi();
+
+            var a = await Api().getDataFromApi();
+
+            log("$a");
+            setState(() {
+
+            });
+
+
+          },
+            child: Icon(Icons.refresh,size: 30,color: Colors.green,))],
       ),
       body: isLoading == true
           ? Center(
@@ -143,7 +158,7 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
                                   fit: BoxFit.fill,
                                 ),
                                 title: Text(
-                                  "${QuoteData.data[index]["quote"]}",
+                                  "${qData[index]["quote"]}",
                                   style: TextStyle(
                                     fontWeight: FontWeight.w700,
                                     fontSize: 25,
@@ -153,7 +168,7 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
                                   //mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Text(
-                                      "${QuoteData.data[index]["author"]}",
+                                      "${qData[index]["author"]}",
                                       style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 18,
