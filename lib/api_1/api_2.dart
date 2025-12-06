@@ -11,6 +11,7 @@ class _Api2State extends State<Api2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade300,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.green,
@@ -20,7 +21,7 @@ class _Api2State extends State<Api2> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: Column(
           children: [
             Row(
@@ -28,27 +29,43 @@ class _Api2State extends State<Api2> {
               children: [
                 CircleAvatar(
                   backgroundColor: Colors.blue,
-                  child: Text("A",style: TextStyle(color: Colors.white),),
+                  child: Text("A", style: TextStyle(color: Colors.white)),
                 ),
                 CircleAvatar(
                   backgroundColor: Colors.blue,
-                  child: Text("B",style: TextStyle(color: Colors.white),),
+                  child: Text("B", style: TextStyle(color: Colors.white)),
                 ),
                 CircleAvatar(
                   backgroundColor: Colors.blue,
-                  child: Text("C",style: TextStyle(color: Colors.white),),
+                  child: Text("C", style: TextStyle(color: Colors.white)),
                 ),
                 CircleAvatar(
                   backgroundColor: Colors.blue,
-                  child: Text("D",style: TextStyle(color: Colors.white),),
+                  child: Text("D", style: TextStyle(color: Colors.white)),
                 ),
                 CircleAvatar(
                   backgroundColor: Colors.blue,
-                  child: Text("E",style: TextStyle(color: Colors.white),),
+                  child: Text("E", style: TextStyle(color: Colors.white)),
                 ),
-
               ],
-            )
+            ),
+            SizedBox(height: 15),
+
+            TextField(
+              decoration: InputDecoration(
+                focusColor: Colors.green,
+                counter: Card(color: Colors.white),
+
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                fillColor: Colors.white,
+                prefixIcon: Icon(Icons.search),
+                hintText: "Search",
+              ),
+            ),
           ],
         ),
       ),
