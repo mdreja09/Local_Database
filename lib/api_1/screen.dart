@@ -68,7 +68,7 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
       backgroundColor: Color(0xffECEFF7),
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.blue,
 
         title: Text(
           "Motivation Quotes",
@@ -89,7 +89,7 @@ class _MotivationalQuotesState extends State<MotivationalQuotes> {
 
 
           },
-            child: Icon(Icons.refresh,size: 30,color: Colors.green,))],
+            child: Icon(Icons.refresh,size: 30,color: Colors.brown,))],
       ),
       body: isLoading == true
           ? Center(
