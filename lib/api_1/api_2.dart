@@ -66,13 +66,7 @@ class _Api2State extends State<Api2> {
                 hintText: "Search",
               ),
             ),
-            Container(
-              child: Row(
-                children: [
-                  Text("data")
-                ],
-              ),
-            )
+
 
           ],
         ),
